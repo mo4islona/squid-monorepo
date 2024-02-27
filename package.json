@@ -1,0 +1,20 @@
+{
+  "name": "squid-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+    "build:full": "pnpm -r build",
+
+    "build:indexer": "pnpm build:full && rm -rf out_tmp && pnpm --filter=indexer deploy out_tmp && pnpm swap:out:unsafe",
+    "swap:out:unsafe": "rm -rf $(ls -A | grep -v out_tmp) && mv out_tmp/* ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

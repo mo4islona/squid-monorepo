@@ -1,0 +1,4 @@
+builds
+.idea
+node_modules
+out_tmp

@@ -1,0 +1,24 @@
+manifestVersion: subsquid.io/v0.1
+name: pnpm-monorepo
+version: 1
+description: The very first evm squid from manifest
+build:
+  install:
+    cmd:
+      - pnpm
+      - install
+  cmd:
+    - pnpm
+    - build:indexer
+deploy:
+  addons:
+    postgres:
+
+  processor:
+    cmd:
+      - sqd
+      - process:prod
+  api:
+    cmd:
+      - sqd
+      - serve:prod

@@ -1,0 +1,9 @@
+{
+  "name": "my_lib",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf lib",
+    "build":  "pnpm clean && tsc"
+  }
+}
