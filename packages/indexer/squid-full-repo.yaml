@@ -9,30 +9,23 @@ build:
       - install
   cmd:
     - pnpm
-    - build:full
+    - -r
+    - build
 deploy:
   addons:
     postgres:
 
   migrate:
     cmd:
-      - cd
-      - packages/indexer
-      - '&&'
-      - sqd
-      - migration:apply
+      - pnpm
+      - indexer:migrate
 
   processor:
     cmd:
-      - cd
-      - packages/indexer
-      - '&&'
-      - sqd
-      - process:prod
+      - pnpm
+      - indexer:prod:processor
+
   api:
     cmd:
-      - cd
-      - packages/indexer
-      - '&&'
-      - sqd
-      - serve:prod
+      - pnpm
+      - indexer:prod:api
